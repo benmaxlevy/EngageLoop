@@ -1,0 +1,8 @@
+#!/bin/sh
+commit_msg_file=$1
+commit_msg=$(cat "$commit_msg_file")
+
+if ! echo "$commit_msg" | grep -qE "^ELOOP-[0-9]+\((project|backend|frontend|ui|fsm|exceptions)\):"; then
+  echo "ERROR: Commit message must start with 'ELOOP-{numbers}(project|backend|frontend|ui|fsm|exceptions):' (e.g., 'ELOOP-123(backend): message')"
+  exit 1
+fi
