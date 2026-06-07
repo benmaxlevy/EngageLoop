@@ -44,6 +44,12 @@ export class TerminalStateLockedException extends BaseException {
   }
 }
 
+function createSerializedException(name: string, message?: string, code?: string, statusCode?: number): BaseException {
+  const err = new BaseException(message || 'An error occurred', code || 'UNKNOWN_ERROR', statusCode || 500);
+  err.name = name;
+  return err;
+}
+
 export function deserializeException(json: unknown): Error {
   if (json && typeof json === 'object') {
     const data = json as Record<string, unknown>;
@@ -59,13 +65,11 @@ export function deserializeException(json: unknown): Error {
         case 'TaskNotFoundException':
           return new TaskNotFoundException(message?.match(/"([^"]+)"/)?.[1] || '');
         case 'InvalidTransitionException':
-          return new InvalidTransitionException('goal', '', '');
+          return createSerializedException(name, message, code, statusCode);
         case 'TerminalStateLockedException':
-          return new TerminalStateLockedException('');
+          return createSerializedException(name, message, code, statusCode);
         default: {
-          const err = new BaseException(message || 'An error occurred', code || 'UNKNOWN_ERROR', statusCode || 500);
-          err.name = name;
-          return err;
+          return createSerializedException(name, message, code, statusCode);
         }
       }
     }

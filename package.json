@@ -1,5 +1,5 @@
 {
-  "name": "engageLoop",
+  "name": "engageloop",
   "private": true,
   "scripts": {
     "build": "turbo run build",

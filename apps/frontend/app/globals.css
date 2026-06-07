@@ -636,7 +636,7 @@ textarea.form-control {
 
 /* Recovery vectors widget details */
 .recovery-banner {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(236, 72, 1 pink, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
   border: 1px solid rgba(124, 58, 237, 0.2);
   border-radius: 12px;
   padding: 1rem;
