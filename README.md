@@ -119,6 +119,7 @@ Each task may take on exactly one of the elements in the set of finite states th
 
 ```mermaid
 stateDiagram-v2
+    direction LR
     [*] --> Blocked
     state "Queued" as Q
     [*] --> Q
