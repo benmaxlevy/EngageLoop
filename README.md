@@ -1,7 +1,6 @@
 # *EngageLoop* Development Overview & Log
 
 Written & Developed Solely by **Benjamin Levy**  
-Last Updated on **June 6, 2026**
 
 ---
 
@@ -29,6 +28,8 @@ graph TD
         FSM["@repo/fsm (Shared FSM)"]
         UI["@repo/ui (Shared UI components)"]
         EXC["@repo/exceptions (Shared Exceptions)"]
+        CFG["@repo/config (Centralized Config)"]
+        DB["@repo/db (Prisma Database)"]
     end
 
     subgraph Apps
@@ -41,9 +42,15 @@ graph TD
     FE --> EXC
     BE --> FSM
     BE --> EXC
+    BE --> DB
+    DB --> CFG
 ```
 
-### 2.2 Technology Stack
+### 2.2 Centralized Configuration (`@repo/config`)
+
+All environment-driven configuration is managed through the `@repo/config` package. It uses [Zod](https://zod.dev/) to define and validate a typed schema against `process.env` at startup, ensuring the application fails fast on missing or malformed values. Downstream packages (e.g., `@repo/db`) import the validated `config` object rather than reading `process.env` directly, keeping environment access centralized and type-safe.
+
+### 2.3 Technology Stack
 
 * **Frontend:** Next.JS
 * **Backend:** Nest.JS with BullMQ

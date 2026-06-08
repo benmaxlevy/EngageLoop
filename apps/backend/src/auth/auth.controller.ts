@@ -8,6 +8,6 @@ export class AuthController {
   @Post('login')
   @HttpCode(HttpStatus.OK)
   login(@Body() body: { username: string; pass: string }) {
-    return this.authService.validateUser(body.username, body.pass);
+    // TODO: validate DTO, call authService, return token
   }
 }
