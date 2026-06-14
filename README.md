@@ -191,3 +191,28 @@ pnpm test
 ```bash
 pnpm check-types
 ```
+
+### 6. Database Management
+
+All database interactions are managed via Prisma in the `@repo/db` package.
+
+* **Generate Prisma Client**:
+  ```bash
+  pnpm db:generate
+  ```
+  Runs `prisma generate` to update types for the database client.
+* **Run Database Migrations**:
+  ```bash
+  pnpm db:migrate
+  ```
+  Runs `prisma migrate dev` to apply schema changes to your database.
+
+#### How to Add/Modify DB Schema
+
+1. Open the schema file at `packages/db/prisma/schema.prisma`.
+2. Define or update your models (e.g., `User`).
+3. Run the migration script to apply changes and regenerate the client:
+   ```bash
+   pnpm db:migrate
+   ```
+4. Prisma client types will auto-update across the workspaces.
