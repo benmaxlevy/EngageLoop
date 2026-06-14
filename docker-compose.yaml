@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: engage
+      POSTGRES_PASSWORD: loop
+      POSTGRES_DB: engageLoop
+    ports:
+      - "5432:5432"

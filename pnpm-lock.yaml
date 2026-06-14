@@ -179,13 +179,13 @@ importers:
       '@prisma/client':
         specifier: ^7.8.0
         version: 7.8.0(prisma@7.8.0(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@6.0.3))(typescript@6.0.3)
+      '@repo/config':
+        specifier: workspace:*
+        version: link:../config
       pg:
         specifier: ^8.21.0
         version: 8.21.0
     devDependencies:
-      '@repo/config':
-        specifier: workspace:*
-        version: link:../config
       '@types/node':
         specifier: ^25.9.2
         version: 25.9.2

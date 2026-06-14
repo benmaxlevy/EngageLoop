@@ -17,6 +17,12 @@
       "cache": false,
       "persistent": true
     },
+    "migrate": {
+      "cache": false
+    },
+    "generate": {
+      "cache": false
+    },
     "test": {
       "dependsOn": ["^build"]
     }
