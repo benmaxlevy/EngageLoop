@@ -1,0 +1,27 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "roots": [
+    "<rootDir>",
+    "<rootDir>/../../packages"
+  ],
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": ["ts-jest", {
+      "tsconfig": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolvePackageJsonExports": false,
+        "target": "es2021",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true
+      }
+    }]
+  },
+  "moduleNameMapper": {
+    "^@repo/fsm$": "<rootDir>/../../packages/fsm/src/index.ts",
+    "^@repo/exceptions$": "<rootDir>/../../packages/exceptions/src/index.ts"
+  }
+}
