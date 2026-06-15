@@ -7,6 +7,9 @@
     "migrate": "prisma migrate dev",
     "generate": "prisma generate"
   },
+  "exports": {
+    ".": "./src/prisma.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
